@@ -1,0 +1,7 @@
+body, button, input {
+	font: 150% sans-serif;
+}
+
+.gs-per-result-labels {
+	display: none;
+}
