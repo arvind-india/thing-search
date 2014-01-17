@@ -1,10 +1,65 @@
-
 <!doctype html>
 <meta charset="utf-8">
 <title>Album Search</title>
 <link rel="stylesheet" href="search.css">
+<script src="https://www.google.com/cse/cse.js?cx=003954572918023580770:ck4bt1ykq6u" async></script>
 
-<div id="search-results"></div>
+<h1>Album Search</h1>
 
-<script src="https://www.google.com/jsapi"></script>
-<script src="search.js"></script>
+<!-- search element -->
+<div class="gcse-search" data-webSearchQueryAddition="more:pagemap:musicgroup" data-defaultToRefinement="Spotify" data-linkTarget="_blank" data-addOverride="album_"></div>
+
+<!-- template -->
+
+<div id="album_webResult" class="cse-template">
+	<article class="gs-webResult gs-result" itemscope itemtype="http://schema.org/MusicAlbum">
+		<div class="image-container">
+			<img itemprop="image" data-attr="richSnippet.cseThumbnail">
+		</div>
+
+		<div>
+			<div itemtype="name">
+				<a class="gs-title" itemprop="url" data-attr="{ href: unescapedUrl, target: target }" data-body="html(title)"></a>
+			</div>
+
+			<!--<div class="gs-snippet" data-body="html(content)"></div>-->
+
+			<div class="gs-visibleUrl" data-body="visibleUrl"></div>
+
+			<table class="tracklist" data-if="richSnippet.musicrecording">
+				<thead>
+					<tr>
+						<th>Track</th>
+						<th>Duration</th>
+						<th>Title</th>
+					</tr>
+				</thead>
+				<tbody data-foreach="richSnippet.musicrecording">
+					<tr itemprop="track" itemscope itemtype="http://schema.org/MusicRecording"
+						>
+						<td data-body="Index + 1"></td>
+						<td itemprop="duration"
+						data-vars="{
+							time: Cur.duration ? Cur.duration.replace(/PT(?:\d+H)?(\d+)M(\d+)S/,
+								function(match, minute, second) {
+									while (minute.length < 2) {
+								        minute = '0' + minute;
+									}
+
+									while (second.length < 2) {
+								        second = '0' + second;
+									}
+
+									return minute + ':' + second;
+								}) : '' }">
+							<span data-body="time"></span>
+						</td>
+						<td data-body="Cur.name" itemprop="name"></td>
+					</tr>
+				</tbody>
+			</table>
+
+			<!--<pre class="debug" data-body="JSON.stringify(Vars, null, 2)"></pre>-->
+		</div>
+	</article>
+</div>

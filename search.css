@@ -1,7 +1,45 @@
-body, button, input {
-	font: 150% sans-serif;
+h1 {
+	padding: 0 15px;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+th, td {
+	text-align: left;
+	vertical-align: top;
+	padding: 2px 5px;
+}
+
+pre {
+	max-width: 50em;
+	overflow-x: auto;
+	max-height: 20em;
+	overflow-y: auto;
+}
+
+.image-container {
+	min-width: 225px;
 }
 
 .gs-per-result-labels {
 	display: none;
+}
+
+.cse-template {
+	display: none;
+}
+
+.gsc-result {
+	display: table;
+	width: 100%;
+}
+
+.gs-result {
+	display: table-row;
+}
+
+.gs-result > div {
+	display: table-cell;
+	vertical-align: top;
+	padding: 0 10px;
 }
