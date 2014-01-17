@@ -18,7 +18,7 @@ pre {
 }
 
 .image-container {
-	min-width: 225px;
+	width: 225px;
 }
 
 .gs-per-result-labels {
@@ -43,3 +43,4 @@ pre {
 	vertical-align: top;
 	padding: 0 10px;
 }
+
