@@ -13,21 +13,6 @@ header {
 	font-size: 120%;
 }
 
-main {
-	display: flex;
-	flex-flow: row wrap;
-}
-
-main > div {
-	flex: 1;
-}
-
-main > ol {
-	flex: 4;
-	margin: 0 10px;
-	font: 1rem "Gill Sans", sans-serif;
-}
-
 pre {
 	max-width: 50em;
 	overflow-x: auto;
@@ -41,4 +26,15 @@ pre {
 
 .gs-per-result-labels {
 	display: none;
+}
+
+.gs-result > div {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.gs-result .metadata-container {
+	width: 30rem;
+	max-width: 100%;
+	margin-right: 1rem;
 }

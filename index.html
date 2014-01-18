@@ -12,11 +12,11 @@
 
 <!-- template -->
 <div id="album_webResult">
-	<article class="gs-webResult gs-result" itemscope itemtype="http://schema.org/MusicAlbum">
-		<div>
+	<div class="gs-result" itemscope itemtype="http://schema.org/MusicAlbum">
+		<div class="metadata-container">
 			<!-- use album title and group title if available -->
-			<div data-if="richSnippet.musicalbum &amp;&amp; richSnippet.musicgroup">
-				<a itemprop="url" data-attr="{ href: unescapedUrl, target: target }">
+			<div data-if="richSnippet.musicalbum &amp;&amp; richSnippet.musicalbum.name &amp;&amp; richSnippet.musicgroup &amp;&amp; richSnippet.musicgroup.name">
+				<a class="gs-title" itemprop="url" data-attr="{ href: unescapedUrl, target: target }">
 				    <span itemprop="byArtist" itemscope itemtype="http://schema.org/MusicGroup">
 				       <span itemprop="name" data-body="richSnippet.musicgroup.name">
 				    </span> - <span itemprop="name" data-body="richSnippet.musicalbum.name"></span>
@@ -25,17 +25,12 @@
 
 			<!-- use the page title otherwise -->
 			<div data-elif="title">
-				<a itemprop="url" data-attr="{ href: unescapedUrl, target: target }" data-body="html(title)"></a>
+				<a class="gs-title" itemprop="url"
+					data-attr="{ href: unescapedUrl, target: target }" data-body="html(title)"></a>
 			</div>
 
 			<div class="gs-visibleUrl" data-body="visibleUrl"></div>
 			<!--<div class="gs-snippet" data-body="html(content)"></div>-->
-		</header>
-
-		<main>
-			<div class="image-container">
-				<img itemprop="image" data-attr="richSnippet.cseThumbnail">
-			</div>
 
 			<ol data-if="richSnippet.musicrecording">
 				<li data-foreach="richSnippet.musicrecording"
@@ -47,6 +42,10 @@
 			</ol>
 
 			<!--<pre class="debug" data-body="JSON.stringify(Vars, null, 2)"></pre>-->
-		</main>
-	</article>
+		</div>
+
+		<div class="image-container">
+			<img itemprop="image" data-attr="richSnippet.cseThumbnail">
+		</div>
+	</div>
 </div>
