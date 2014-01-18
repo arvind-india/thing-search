@@ -12,42 +12,40 @@
 
 <!-- template -->
 <div id="album_webResult">
-	<div class="gs-result" itemscope itemtype="http://schema.org/MusicAlbum" data-vars="parseSnippet(richSnippet)">
-		<div class="metadata-container">
-			<!-- use schema album title and group title if available -->
-			<div data-if="album &amp;&amp; artist">
-				<a class="gs-title" itemprop="url" data-attr="{ href: unescapedUrl, target: target }">
-				    <span itemprop="byArtist" itemscope itemtype="http://schema.org/MusicGroup">
-				       <span itemprop="name" data-body="artist"></span>
-			        </span>
-			        -
-			        <span itemprop="name" data-body="album"></span>
-			        <span data-if="date" data-body="date"></span>
-				</a>
-			</div>
+  <div class="gs-result" itemscope itemtype="http://schema.org/MusicAlbum" data-vars="parseSnippet(richSnippet)">
+    <div class="metadata-container">
+      <!-- use schema album title and group title if available -->
+      <div data-if="album &amp;&amp; artist">
+        <a class="gs-title" itemprop="url" data-attr="{ href: unescapedUrl, target: target }">
+          <span itemprop="byArtist" itemscope itemtype="http://schema.org/MusicGroup">
+            <span itemprop="name" data-body="artist"></span>
+          </span>
+          -
+          <span itemprop="name" data-body="album"></span>
+          <span data-if="date" data-body="date"></span>
+        </a>
+      </div>
 
-			<!-- use the page title otherwise -->
-			<div data-elif="title">
-				<a class="gs-title" itemprop="url"
-					data-attr="{ href: unescapedUrl, target: target }" data-body="html(title)"></a>
-			</div>
+      <!-- use the page title otherwise -->
+      <div data-elif="title">
+        <a class="gs-title" itemprop="url"
+        data-attr="{ href: unescapedUrl, target: target }" data-body="html(title)"></a>
+      </div>
 
-			<div class="gs-visibleUrl" data-body="visibleUrl"></div>
+      <div class="gs-visibleUrl" data-body="visibleUrl"></div>
 
-			<ol data-if="richSnippet.musicrecording">
-				<li data-foreach="richSnippet.musicrecording"
-					itemprop="track" itemscope itemtype="http://schema.org/MusicRecording"
-					data-vars="{ time: parseDuration(Cur.duration) }">
-					<span itemprop="name" data-body="Cur.name"></span>
-					<span itemprop="duration" data-body="time"></span>
-				</li>
-			</ol>
+      <ol data-if="richSnippet.musicrecording">
+        <li data-foreach="richSnippet.musicrecording" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording" data-vars="{ time: parseDuration(Cur.duration) }">
+          <span itemprop="name" data-body="Cur.name"></span>
+          <span itemprop="duration" data-body="time"></span>
+        </li>
+      </ol>
 
-			<p itemprop="description" data-if="description" data-body="description"></p>
-		</div>
+      <p itemprop="description" data-if="description" data-body="description"></p>
+    </div>
 
-		<div class="image-container">
-			<img itemprop="image" data-attr="image">
-		</div>
-	</div>
+    <div class="image-container">
+      <img itemprop="image" data-attr="image">
+    </div>
+  </div>
 </div>
