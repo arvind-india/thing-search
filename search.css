@@ -1,13 +1,31 @@
+body {
+	font-size: 1.2rem;
+}
+
 h1 {
 	padding: 0 15px;
 	margin: 0;
 	font-family: sans-serif;
 }
 
-th, td {
-	text-align: left;
-	vertical-align: top;
-	padding: 2px 5px;
+header {
+	margin-bottom: 10px;
+	font-size: 120%;
+}
+
+main {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+main > div {
+	flex: 1;
+}
+
+main > ol {
+	flex: 4;
+	margin: 0 10px;
+	font: 1rem "Gill Sans", sans-serif;
 }
 
 pre {
@@ -17,30 +35,10 @@ pre {
 	overflow-y: auto;
 }
 
-.image-container {
-	width: 225px;
+#album_webResult {
+	display: none;
 }
 
 .gs-per-result-labels {
 	display: none;
 }
-
-.cse-template {
-	display: none;
-}
-
-.gsc-result {
-	display: table;
-	width: 100%;
-}
-
-.gs-result {
-	display: table-row;
-}
-
-.gs-result > div {
-	display: table-cell;
-	vertical-align: top;
-	padding: 0 10px;
-}
-
