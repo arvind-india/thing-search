@@ -12,14 +12,17 @@
 
 <!-- template -->
 <div id="album_webResult">
-	<div class="gs-result" itemscope itemtype="http://schema.org/MusicAlbum">
+	<div class="gs-result" itemscope itemtype="http://schema.org/MusicAlbum" data-vars="parseSnippet(richSnippet)">
 		<div class="metadata-container">
-			<!-- use album title and group title if available -->
-			<div data-if="richSnippet.musicalbum &amp;&amp; richSnippet.musicalbum.name &amp;&amp; richSnippet.musicgroup &amp;&amp; richSnippet.musicgroup.name">
+			<!-- use schema album title and group title if available -->
+			<div data-if="album &amp;&amp; artist">
 				<a class="gs-title" itemprop="url" data-attr="{ href: unescapedUrl, target: target }">
 				    <span itemprop="byArtist" itemscope itemtype="http://schema.org/MusicGroup">
-				       <span itemprop="name" data-body="richSnippet.musicgroup.name">
-				    </span> - <span itemprop="name" data-body="richSnippet.musicalbum.name"></span>
+				       <span itemprop="name" data-body="artist"></span>
+			        </span>
+			        -
+			        <span itemprop="name" data-body="album"></span>
+			        <span data-if="date" data-body="date"></span>
 				</a>
 			</div>
 
@@ -30,22 +33,21 @@
 			</div>
 
 			<div class="gs-visibleUrl" data-body="visibleUrl"></div>
-			<!--<div class="gs-snippet" data-body="html(content)"></div>-->
 
 			<ol data-if="richSnippet.musicrecording">
 				<li data-foreach="richSnippet.musicrecording"
 					itemprop="track" itemscope itemtype="http://schema.org/MusicRecording"
-					data-vars="{ time: durationToTime(Cur.duration) }">
+					data-vars="{ time: parseDuration(Cur.duration) }">
 					<span itemprop="name" data-body="Cur.name"></span>
 					<span itemprop="duration" data-body="time"></span>
 				</li>
 			</ol>
 
-			<!--<pre class="debug" data-body="JSON.stringify(Vars, null, 2)"></pre>-->
+			<p itemprop="description" data-if="description" data-body="description"></p>
 		</div>
 
 		<div class="image-container">
-			<img itemprop="image" data-attr="richSnippet.cseThumbnail">
+			<img itemprop="image" data-attr="image">
 		</div>
 	</div>
 </div>

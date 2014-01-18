@@ -13,11 +13,8 @@ header {
 	font-size: 120%;
 }
 
-pre {
-	max-width: 50em;
-	overflow-x: auto;
-	max-height: 20em;
-	overflow-y: auto;
+[itemprop=description] {
+	color: gray;
 }
 
 #album_webResult {
