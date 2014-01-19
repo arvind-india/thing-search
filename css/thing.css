@@ -1,20 +1,24 @@
 article {
 	display: flex;
 	flex-flow: row wrap;
-	color: #333;
+	color: #555;
+	border: 1px solid #eee;
+	box-shadow: 0 1px 1px #ddd;
+	padding: 1rem;
+	border-radius: 1px;
 }
 
 article ol {
 	position: relative;
 	left: -1em;
-}
-
-article .metadata-container {
-	padding: 10px 20px;
+	max-height: 25em;
+	overflow-y: auto;
 }
 
 article .image-container {
-	padding: 10px 0;
+	display: block;
+	padding-left: 10px;
+	max-width: 25%;
 }
 
 article .image-container img {
@@ -37,4 +41,13 @@ article [itemprop=url]:hover {
 
 article [itemprop=description] {
 	color: gray;
+	opacity: 0.1;
+}
+
+article [itemprop=description]:hover {
+	opacity: 1.0;
+}
+
+article object[itemprop="embedUrl"] {
+	width: 100%;
 }

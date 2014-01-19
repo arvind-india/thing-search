@@ -1,9 +1,9 @@
 <!doctype html>
 <meta charset="utf-8">
 <title>TV Series Search</title>
-<link rel="stylesheet" href="../base.css">
-<link rel="stylesheet" href="search.css">
-<script src="lib.js"></script>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="tvseries.css">
+<script src="tvseries.js"></script>
 <script src="https://www.google.com/cse/cse.js?cx=003954572918023580770:8oor6za1rw4" async></script>
 
 <nav>
@@ -16,12 +16,6 @@
 <!-- template -->
 <div id="item_webResult">
   <article itemscope itemtype="http://schema.org/TVSeries" data-vars="parseSnippet(richSnippet)">
-    <div data-if="image" class="image-container">
-      <a itemprop="url" data-attr="{ href: unescapedUrl, target: target }">
-        <img itemprop="image" data-attr="image">
-      </a>
-    </div>
-
     <div class="metadata-container">
       <!-- use microdata name if available -->
       <div data-if="name">
@@ -43,5 +37,8 @@
 
       <p itemprop="description" data-if="description" data-body="description"></p>
     </div>
+
+    <a data-if="image" class="image-container"
+      data-attr="{ href: unescapedUrl, target: target }"><img itemprop="image" data-attr="image"></a>
   </article>
 </div>

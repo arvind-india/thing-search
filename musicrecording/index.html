@@ -1,9 +1,9 @@
 <!doctype html>
 <meta charset="utf-8">
 <title>Music Search</title>
-<link rel="stylesheet" href="../base.css">
-<link rel="stylesheet" href="search.css">
-<script src="lib.js"></script>
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="musicrecording.css">
+<script src="musicrecording.js"></script>
 <script src="https://www.google.com/cse/cse.js?cx=003954572918023580770:ck4bt1ykq6u" async></script>
 
 <nav>
@@ -16,12 +16,6 @@
 <!-- template -->
 <div id="item_webResult">
   <article itemscope itemtype="http://schema.org/MusicAlbum" data-vars="parseSnippet(richSnippet)">
-    <div data-if="image" class="image-container">
-      <a itemprop="url" data-attr="{ href: unescapedUrl, target: target }">
-        <img itemprop="image" data-attr="image">
-      </a>
-    </div>
-
     <div class="metadata-container">
       <!-- use schema album title and group title if available -->
       <div data-if="album &amp;&amp; artist">
@@ -59,6 +53,15 @@
       </ol>
 
       <p itemprop="description" data-if="description" data-body="description"></p>
+
+      <div data-if="audio">
+        <div data-foreach="audio" itemscope itemtype="http://schema.org/AudioObject">
+          <object itemprop="embedUrl" data-attr="{ data: Cur.embedurl }"></object>
+        </div>
+      </div>
     </div>
+
+    <a data-if="image" class="image-container"
+      data-attr="{ href: unescapedUrl, target: target }"><img itemprop="image" data-attr="image"></a>
   </article>
 </div>

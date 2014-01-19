@@ -57,7 +57,7 @@ var parseDate = function (snippet) {
 
 var parseDuration = function (snippet) {
 	if (!snippet.movie.duration) {
-		return '';
+		return null;
 	}
 
 	var duration = snippet.movie.duration;
@@ -65,7 +65,7 @@ var parseDuration = function (snippet) {
 	var test = /PT?(\d+)M/;
 
 	if (!duration.match(test)) {
-		return '';
+		return null;
 	}
 
 	return duration.replace(test, function (match, minute) {
@@ -79,6 +79,4 @@ var parseRating = function(snippet) {
 
 		return Math.floor(ratio * 100) + '%';
 	}
-
-
 }

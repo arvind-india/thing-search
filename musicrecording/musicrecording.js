@@ -8,7 +8,8 @@ var parseSnippet = function (snippet) {
 		album: parseAlbum(snippet),
 		date: parseDate(snippet),
 		description: parseDescription(snippet),
-		image: parseImage(snippet)
+		image: parseImage(snippet),
+		audio: parseAudio(snippet)
 	}
 }
 
@@ -96,4 +97,17 @@ var parseDuration = function (duration) {
 
 		return minute + ':' + second;
 	});
+}
+
+
+var parseAudio = function(snippet) {
+	if (!snippet.audioobject) {
+		return null;
+	}
+
+	if (typeof snippet.audioobject.slice != 'undefined') {
+		return snippet.audioobject.slice(0, 1);
+	}
+
+	return [snippet.audioobject];
 }
