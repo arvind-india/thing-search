@@ -1,0 +1,12 @@
+.rating-percent {
+	display: inline-block;
+	color: white;
+	background: rgb(105, 180, 120);
+	font-size: 12px;
+	border-radius: 3em;
+	width: 3em;
+	line-height: 3em;
+	vertical-align: middle;
+	text-align: center;
+	margin-left: 0.5em;
+}

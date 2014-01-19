@@ -1,16 +1,20 @@
 article {
 	display: flex;
 	flex-flow: row wrap;
-	background: #e6e6e6;
+	color: #333;
 }
 
-article .image-container,
+article ol {
+	position: relative;
+	left: -1em;
+}
+
 article .metadata-container {
-	padding: 20px;
+	padding: 10px 20px;
 }
 
 article .image-container {
-	width: 320px;
+	padding: 10px 0;
 }
 
 article .image-container img {
@@ -19,11 +23,10 @@ article .image-container img {
 
 article .metadata-container {
 	flex: 1;
-	padding-left: 0;
 }
 
 article [itemprop=url] {
-	font-size: 2rem;
+	font-size: 1.5rem;
 	text-decoration: none;
 	color: black;
 }

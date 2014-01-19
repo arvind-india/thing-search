@@ -1,22 +1,22 @@
 <!doctype html>
 <meta charset="utf-8">
-<title>Album Search</title>
+<title>Music Search</title>
 <link rel="stylesheet" href="../base.css">
 <link rel="stylesheet" href="search.css">
 <script src="lib.js"></script>
 <script src="https://www.google.com/cse/cse.js?cx=003954572918023580770:ck4bt1ykq6u" async></script>
 
 <nav>
-  <a href="../">Things</a><a href="../musicalbum/" active>Albums</a><a href="../tvseries/">TV</a>
+  <a href="../">Things</a><a href="../musicrecording/" active>Music</a>
 </nav>
 
 <!-- search element -->
-<div class="gcse-search" data-defaultToRefinement="Spotify" data-addOverride="album_"></div>
+<div class="gcse-search" data-defaultToRefinement="" data-addOverride="item_"></div>
 
 <!-- template -->
-<div id="album_webResult" class="template">
+<div id="item_webResult">
   <article itemscope itemtype="http://schema.org/MusicAlbum" data-vars="parseSnippet(richSnippet)">
-    <div class="image-container">
+    <div data-if="image" class="image-container">
       <a itemprop="url" data-attr="{ href: unescapedUrl, target: target }">
         <img itemprop="image" data-attr="image">
       </a>
