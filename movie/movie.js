@@ -60,22 +60,16 @@ var parseDuration = function (snippet) {
 		return null;
 	}
 
-	var duration = snippet.movie.duration;
+	var matches = snippet.movie.duration.match(/PT?(\d+)M/);
 
-	var test = /PT?(\d+)M/;
-
-	if (!duration.match(test)) {
-		return null;
+	if (matches) {
+		return matches[1] + '′';
 	}
-
-	return duration.replace(test, function (match, minute) {
-		return minute + '′';
-	});
 }
 
 var parseRating = function(snippet) {
 	if (snippet.aggregaterating && snippet.aggregaterating.ratingvalue &&  snippet.aggregaterating.bestrating) {
-		var ratio = Number(snippet.aggregaterating.ratingvalue) / Number(snippet.aggregaterating.bestrating);
+		var ratio = Number(snippet.aggregaterating.ratingvalue.replace(/\,/g, '.')) / Number(snippet.aggregaterating.bestrating);
 
 		return Math.floor(ratio * 100) + '%';
 	}
