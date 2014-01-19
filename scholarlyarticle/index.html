@@ -1,0 +1,54 @@
+<!doctype html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Scholarly Article Search</title>
+
+<link rel="stylesheet" href="../css/base.css">
+<link rel="stylesheet" href="scholarlyarticle.css">
+
+<script src="scholarlyarticle.js"></script>
+<script src="https://www.google.com/cse/cse.js?cx=003954572918023580770:1maqm-jhd4q" async></script>
+
+<nav>
+  <a href="../">Things</a><a href="../scholarlyarticle/">Scholarly Article</a>
+</nav>
+
+<!-- search element -->
+<div class="gcse-search" data-addOverride="item_"></div>
+
+<!-- template -->
+<div id="item_webResult">
+  <article itemscope itemtype="http://schema.org/ScholarlyArticle" data-vars="parseSnippet(richSnippet)">
+    <div class="metadata-container">
+      <header>
+        <!-- use microdata name if available -->
+        <div data-if="name">
+          <a itemprop="url" data-attr="{ href: unescapedUrl, target: target }">
+            <span itemprop="name" data-body="name"></span>
+          </a>
+        </div>
+
+        <!-- use the page title otherwise -->
+        <div data-elif="title">
+          <a itemprop="url" data-attr="{ href: unescapedUrl, target: target }" data-body="html(title)"></a>
+        </div>
+
+        <div>
+          <span itemprop="datePublished" data-if="date" data-body="date"></span>
+          <span data-if="date &amp;&amp; publisher"> &middot; </span>
+          <span itemprop="publisher" data-if="publisher" data-body="publisher"></span>
+        </div>
+
+        <div class="gs-url" data-body="visibleUrl"></div>
+      </header>
+
+      <div>
+        <p itemprop="description" data-if="description" data-body="description"></p>
+      </div>
+    </div>
+
+    <a data-if="image" class="image-container"
+      data-attr="{ href: unescapedUrl, target: target }"><img itemprop="image" data-attr="image"></a>
+  </article>
+</div>
