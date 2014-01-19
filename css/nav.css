@@ -1,9 +1,9 @@
 nav {
-	background: #ddd;
 	font-size: 1.5rem;
 }
 
 nav a {
+	background: #ddd;
 	display: inline-block;
 	color: #444;
 	text-decoration: none;
