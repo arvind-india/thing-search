@@ -1,4 +1,6 @@
 @import url(nav.css);
+@import url(cse.css);
+@import url(thing.css);
 
 body {
 	font-size: 1.2rem;

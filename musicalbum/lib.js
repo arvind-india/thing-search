@@ -70,7 +70,7 @@ var parseDate = function (snippet) {
 	var matches = date.match(/^(\d{4})/);
 
 	if (matches) {
-		return ' (' + matches[1] + ')';
+		return matches[1];
 	}
 }
 
@@ -85,7 +85,7 @@ var parseDuration = function (duration) {
 		return '';
 	}
 
-	var time = duration.replace(test, function (match, minute, second) {
+	return duration.replace(test, function (match, minute, second) {
 		while (minute.length < 2) {
 			minute = '0' + minute;
 		}
@@ -96,6 +96,4 @@ var parseDuration = function (duration) {
 
 		return minute + ':' + second;
 	});
-
-	return ' (' + time + ')';
 }

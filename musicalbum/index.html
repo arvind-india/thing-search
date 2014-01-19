@@ -7,48 +7,58 @@
 <script src="https://www.google.com/cse/cse.js?cx=003954572918023580770:ck4bt1ykq6u" async></script>
 
 <nav>
-  <a href="../">Things</a><a href="../musicalbum/" class="active">Albums</a><a href="../tvseries/">TV</a>
+  <a href="../">Things</a><a href="../musicalbum/" active>Albums</a><a href="../tvseries/">TV</a>
 </nav>
 
 <!-- search element -->
 <div class="gcse-search" data-defaultToRefinement="Spotify" data-addOverride="album_"></div>
 
 <!-- template -->
-<div id="album_webResult">
-  <div class="gs-result" itemscope itemtype="http://schema.org/MusicAlbum" data-vars="parseSnippet(richSnippet)">
+<div id="album_webResult" class="template">
+  <article itemscope itemtype="http://schema.org/MusicAlbum" data-vars="parseSnippet(richSnippet)">
+    <div class="image-container">
+      <a itemprop="url" data-attr="{ href: unescapedUrl, target: target }">
+        <img itemprop="image" data-attr="image">
+      </a>
+    </div>
+
     <div class="metadata-container">
       <!-- use schema album title and group title if available -->
       <div data-if="album &amp;&amp; artist">
-        <a class="gs-title" itemprop="url" data-attr="{ href: unescapedUrl, target: target }">
-          <span itemprop="byArtist" itemscope itemtype="http://schema.org/MusicGroup">
+        <a itemprop="url" data-attr="{ href: unescapedUrl, target: target }">
+          <div>
+            <span itemprop="name" data-body="album"></span>
+
+            <span data-if="date" data-attr="0">
+              (<span itemprop="datePublished" data-body="date"></span>)
+            </span>
+          </div>
+
+          <div itemprop="byArtist" itemscope itemtype="http://schema.org/MusicGroup">
             <span itemprop="name" data-body="artist"></span>
-          </span>
-          -
-          <span itemprop="name" data-body="album"></span>
-          <span data-if="date" data-body="date"></span>
+          </div>
         </a>
       </div>
 
       <!-- use the page title otherwise -->
       <div data-elif="title">
-        <a class="gs-title" itemprop="url"
-        data-attr="{ href: unescapedUrl, target: target }" data-body="html(title)"></a>
+        <a itemprop="url" data-attr="{ href: unescapedUrl, target: target }" data-body="html(title)"></a>
       </div>
 
-      <div class="gs-visibleUrl" data-body="visibleUrl"></div>
+      <div class="gs-url" data-body="visibleUrl"></div>
 
       <ol data-if="richSnippet.musicrecording">
-        <li data-foreach="richSnippet.musicrecording" itemprop="track" itemscope itemtype="http://schema.org/MusicRecording" data-vars="{ time: parseDuration(Cur.duration) }">
+        <li data-foreach="richSnippet.musicrecording" data-vars="{ time: parseDuration(Cur.duration) }"
+            itemprop="track" itemscope itemtype="http://schema.org/MusicRecording">
           <span itemprop="name" data-body="Cur.name"></span>
-          <span itemprop="duration" data-body="time"></span>
+
+          <span data-if="time" data-attr="0">
+            (<span itemprop="duration" data-body="time"></span>)
+          <span>
         </li>
       </ol>
 
       <p itemprop="description" data-if="description" data-body="description"></p>
     </div>
-
-    <div class="image-container">
-      <img itemprop="image" data-attr="image">
-    </div>
-  </div>
+  </article>
 </div>

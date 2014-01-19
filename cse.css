@@ -1,0 +1,20 @@
+.template {
+	display: none;
+}
+
+.gs-per-result-labels {
+	display: none;
+}
+
+.gsc-tabHeader {
+	font-size: 1.2rem;
+	font-weight: normal !important;
+}
+
+.gsc-result {
+	padding: 5px 0 !important;
+}
+
+.gs-url {
+	color: green;
+}

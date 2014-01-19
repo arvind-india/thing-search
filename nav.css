@@ -21,6 +21,6 @@ nav a:hover {
 	text-decoration: underline;
 }
 
-nav a.active {
+nav a[active] {
 	color: black;
 }

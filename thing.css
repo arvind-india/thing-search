@@ -1,0 +1,37 @@
+article {
+	display: flex;
+	flex-flow: row wrap;
+	background: #e6e6e6;
+}
+
+article .image-container,
+article .metadata-container {
+	padding: 20px;
+}
+
+article .image-container {
+	width: 320px;
+}
+
+article .image-container img {
+	max-width: 100%;
+}
+
+article .metadata-container {
+	flex: 1;
+	padding-left: 0;
+}
+
+article [itemprop=url] {
+	font-size: 2rem;
+	text-decoration: none;
+	color: black;
+}
+
+article [itemprop=url]:hover {
+	text-decoration: underline;
+}
+
+article [itemprop=description] {
+	color: gray;
+}
