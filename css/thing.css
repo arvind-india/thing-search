@@ -4,21 +4,19 @@ article {
 	color: #555;
 	border: 1px solid #eee;
 	box-shadow: 0 1px 1px #ddd;
-	padding: 1rem;
+	padding: 0.25rem;
 	border-radius: 1px;
 }
 
 article ol {
 	position: relative;
 	left: -1em;
-	max-height: 25em;
+	max-height: 100em;
 	overflow-y: auto;
 }
 
 article .image-container {
 	display: block;
-	padding-left: 10px;
-	max-width: 25%;
 }
 
 article .image-container img {
@@ -27,10 +25,11 @@ article .image-container img {
 
 article .metadata-container {
 	flex: 1;
+	min-width: 50%;
 }
 
 article [itemprop=url] {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	text-decoration: none;
 	color: black;
 }
@@ -41,11 +40,14 @@ article [itemprop=url]:hover {
 
 article [itemprop=description] {
 	color: gray;
-	opacity: 0.1;
 }
 
-article [itemprop=description]:hover {
-	opacity: 1.0;
+article .spoiler {
+	color: #f6f6f6 !important;
+}
+
+article .spoiler:hover {
+	color: #777 !important;
 }
 
 article object[itemprop="embedUrl"] {

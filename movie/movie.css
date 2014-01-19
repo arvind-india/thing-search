@@ -1,3 +1,7 @@
+header {
+	margin-bottom: 1rem;
+}
+
 .rating-percent {
 	display: inline-block;
 	color: white;
@@ -8,5 +12,6 @@
 	line-height: 3em;
 	vertical-align: middle;
 	text-align: center;
-	margin-left: 0.5em;
+	float: left;
+	margin: 0 1em 1em 0;
 }

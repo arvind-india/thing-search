@@ -1,15 +1,11 @@
 @import url(nav.css);
 @import url(cse.css);
 @import url(thing.css);
+@import url(wide.css) (min-width: 600px);
 
 body {
 	font-size: 1.2rem;
 	font-family: sans-serif;
 	margin: 0 auto;
 	max-width: 50em;
-}
-
-header {
-	margin-bottom: 10px;
-	font-size: 120%;
 }

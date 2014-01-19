@@ -1,0 +1,11 @@
+article {
+	padding: 1rem;
+}
+
+article .metadata-container {
+	padding-right: 10px;
+}
+
+article [itemprop=url] {
+	font-size: 1.5rem;
+}
