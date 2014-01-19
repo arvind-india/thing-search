@@ -6,7 +6,7 @@ header {
 	display: inline-block;
 	color: white;
 	background: rgb(105, 180, 120);
-	font-size: 12px;
+	font-size: 1em;
 	border-radius: 3em;
 	width: 3em;
 	line-height: 3em;

@@ -18,3 +18,16 @@
 .gs-url {
 	color: green;
 }
+
+.gsc-control-cse,
+.gsc-result,
+.gsc-tabHeader {
+	background: transparent !important;
+	border: none !important;
+}
+
+.gsc-tabHeader.gsc-tabhActive {
+	background: white !important;
+	border: 1px solid #ccc !important;
+	border-bottom-color: #eee !important;
+}
