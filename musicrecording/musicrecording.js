@@ -99,14 +99,25 @@ var parseDuration = function (duration) {
 	});
 }
 
+var embeddable = /(bandcamp\.com|soundcloud\.com)/;
 
 var parseAudio = function(snippet) {
 	if (snippet.audioobject) {
+		var url;
+
 		if (toString.call(snippet.audioobject) === '[object Array]') {
-			return { data: snippet.audioobject[0].embedurl.replace(/autoplay$/, '') };
+			if (snippet.audioobject.length) {
+				url = snippet.audioobject[0].embedurl;
+			}
+		} else {
+			url = snippet.audioobject.embedurl;
 		}
 
-		return { data: snippet.audioobject.embedurl.replace(/autoplay$/, '') };
+		if (url && embeddable.test(url)) {
+			return {
+				data: url
+			};
+		}
 	}
 
 	if (snippet.metatags && snippet.metatags.ogAudio) {
@@ -117,10 +128,14 @@ var parseAudio = function(snippet) {
 			};
 		}
 
-		return { data: snippet.metatags.ogAudio };
+		if (embeddable.test(snippet.metatags.ogAudio)) {
+			return {
+				data: snippet.metatags.ogAudio
+			};
+		}
 	}
 
-	if (snippet.metatags && snippet.metatags.ogVideo) {
+	if (snippet.metatags && snippet.metatags.ogVideo && embeddable.test(snippet.metatags.ogVideo)) {
 		return {
 			data: snippet.metatags.ogVideo,
 			width: snippet.metatags.ogVideoWidth,
