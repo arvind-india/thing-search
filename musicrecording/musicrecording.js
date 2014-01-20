@@ -103,10 +103,10 @@ var parseDuration = function (duration) {
 var parseAudio = function(snippet) {
 	if (snippet.audioobject) {
 		if (toString.call(snippet.audioobject) === '[object Array]') {
-			return { data: snippet.audioobject[0].embedurl };
+			return { data: snippet.audioobject[0].embedurl.replace(/autoplay$/, '') };
 		}
 
-		return { data: snippet.audioobject.embedurl };
+		return { data: snippet.audioobject.embedurl.replace(/autoplay$/, '') };
 	}
 
 	if (snippet.metatags && snippet.metatags.ogAudio) {
