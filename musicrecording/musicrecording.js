@@ -111,7 +111,10 @@ var parseAudio = function(snippet) {
 
 	if (snippet.metatags && snippet.metatags.ogAudio) {
 		if (snippet.metatags.ogAudio.match(/^spotify:/)) {
-			return { data: 'https://embed.spotify.com/?theme=white&uri=' + snippet.metatags.ogAudio };
+			return {
+				data: 'https://embed.spotify.com/?theme=white&uri=' + snippet.metatags.ogAudio,
+				height: '80px'
+			};
 		}
 
 		return { data: snippet.metatags.ogAudio };
