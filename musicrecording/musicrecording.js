@@ -9,7 +9,7 @@ var parseSnippet = function (snippet) {
 		date: parseDate(snippet),
 		description: parseDescription(snippet),
 		image: parseImage(snippet),
-		audio: parseAudio(snippet)
+		embed: parseAudio(snippet)
 	}
 }
 
@@ -101,13 +101,28 @@ var parseDuration = function (duration) {
 
 
 var parseAudio = function(snippet) {
-	if (!snippet.audioobject) {
-		return null;
+	if (snippet.audioobject) {
+		if ($.isArray(snippet.audioobject)) {
+			return { data: snippet.audioobject[0].embedUrl };
+		}
+
+		return { data: snippet.audioobject.embedUrl };
 	}
 
-	if (typeof snippet.audioobject.slice != 'undefined') {
-		return snippet.audioobject.slice(0, 1);
+	if (snippet.metatags && snippet.metatags.ogAudio) {
+		if (snippet.metatags.ogAudio.match(/^spotify:/)) {
+			return { data: 'https://embed.spotify.com/?uri=' + snippet.metatags.ogAudio };
+		}
+
+		return { data: snippet.metatags.ogAudio };
 	}
 
-	return [snippet.audioobject];
+	if (snippet.metatags && snippet.metatags.ogVideo) {
+		return {
+			data: snippet.metatags.ogVideo,
+			width: snippet.metatags.ogVideoWidth,
+			height: snippet.metatags.ogVideoHeight,
+			type: snippet.metatags.ogVideoType
+		};
+	}
 }
