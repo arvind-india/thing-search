@@ -102,7 +102,7 @@ var parseDuration = function (duration) {
 
 var parseAudio = function(snippet) {
 	if (snippet.audioobject) {
-		if ($.isArray(snippet.audioobject)) {
+		if (toString.call(snippet.audioobject) === '[object Array]') {
 			return { data: snippet.audioobject[0].embedUrl };
 		}
 
