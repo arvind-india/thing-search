@@ -137,7 +137,7 @@ var parseAudio = function(snippet) {
 
 	if (snippet.metatags && snippet.metatags.ogVideo && embeddable.test(snippet.metatags.ogVideo)) {
 		return {
-			data: snippet.metatags.ogVideo,
+			data: snippet.metatags.ogVideoSecureUrl ? snippet.metatags.ogVideoSecureUrl : snippet.metatags.ogVideo,
 			width: snippet.metatags.ogVideoWidth,
 			height: snippet.metatags.ogVideoHeight,
 			type: snippet.metatags.ogVideoType
